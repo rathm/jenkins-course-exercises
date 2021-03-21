@@ -4,11 +4,11 @@ pipeline {
         stage('PARALLEL') {
             parellel 
                 firstBranch: {
-                    echo 'firstBranch start;
+                    echo 'firstBranch start';
                     sleep 5
                     echo 'firstBranch end'
                 }, secondBranch: {
-                    echo 'secondBranch start;
+                    echo 'secondBranch start';
                     sleep 8
                     echo 'secondBranch end'
                 }
