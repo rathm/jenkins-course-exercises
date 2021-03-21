@@ -1,17 +1,21 @@
 pipeline {
-    agent any
-    stages {
-        stage('PARALLEL') {
-            parellel 
-                firstBranch: {
-                    echo 'firstBranch start';
-                    sleep 5
-                    echo 'firstBranch end'
-                }, secondBranch: {
-                    echo 'secondBranch start';
-                    sleep 8
-                    echo 'secondBranch end'
-                }
-        }
+  agent any
+  stages {
+    stage('run-parallel-branches') {
+      steps {
+        parallel(
+          a: {
+               echo 'Branch a start'
+               sleep 5
+               echo 'Branch a end'
+          },
+          b: {
+               echo 'Branch b start'
+               sleep 8
+               echo 'Branch b end'
+          }
+        )
+      }
     }
+  }
 }
